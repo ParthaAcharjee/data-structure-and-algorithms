@@ -60,7 +60,38 @@ class doubleLinkedList:
             lastElement.setNext(newNode)
             newNode.setPre(lastElement)
       
+    def insert(self,data,position):
+        newNode = Node(data)
         
+        if self.head==None: #if add to an empty list
+            if position==0:
+                self.head = newNode
+            else:
+                print("Position and list size not matched.")
+        else: # if add to a non-empty list
+            current=self.head
+            previous=None
+            n=0
+            
+            while n<=position:
+                if n==position:
+                   if position!=0: # if not the first position
+                        previous.setNext(newNode)
+                        newNode.setPre(previous)
+                   else: # if insert at the first position
+                        self.head=newNode
+                        
+                   newNode.setNext(current)
+                   current.setPre(newNode)
+                   break
+                previous=current
+                current=current.getNext()
+                n+=1
+                if current==None:
+                    print("Position and list size not matched.")
+                    break
+                    
+                        
         
         # Return list size    
     def size(self):
@@ -83,16 +114,34 @@ class doubleLinkedList:
         print values
         
 myList=doubleLinkedList()
-
 myList.addFront(14)
+myList.show()
+
+print("\nAdd three element at the front.")
 myList.addFront(12)
 myList.addFront(10)
 myList.addFront(8)
-
 myList.show()
 
+
+print("\nAdd three element at the end.")
 myList.addEnd(16)
 myList.addEnd(18)
 myList.addEnd(20)
-
 myList.show()
+
+print("\nInsert one element at the front.")
+myList.insert(222,0)
+myList.show()
+
+
+print("\nInsert one element after 3rd position.")
+myList.insert(222,3)
+myList.show()
+
+print("\nInsert one element after 6th position.")
+myList.insert(222,6)
+myList.show()
+
+print("\nInsert one element out of range, 60th position.")
+myList.insert(222,60)
