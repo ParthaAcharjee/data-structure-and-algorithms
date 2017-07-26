@@ -145,3 +145,17 @@ myList.show()
 
 print("\nInsert one element out of range, 60th position.")
 myList.insert(222,60)
+
+
+print("\nPrint Node addresses and data from forward.")
+current=myList.head;
+while current!=None:
+    print(id(current), current.data)
+    lastElement=current
+    current=current.getNext()
+    
+print("\nPrint Node addresses and data from backward.")
+current=lastElement;
+while current!=None:
+    print(id(current), current.data)
+    current=current.getPre()
