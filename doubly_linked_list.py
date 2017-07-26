@@ -111,7 +111,7 @@ class doubleLinkedList:
             values.append(current.data)
             current = current.getNext()
             
-        print values
+        print(values)
         
 myList=doubleLinkedList()
 myList.addFront(14)
