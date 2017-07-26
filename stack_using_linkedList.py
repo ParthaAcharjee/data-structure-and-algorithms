@@ -32,6 +32,18 @@ class stack:
             stack.n+=1
             return 1
 
+
+    def pull(self):
+        if stack.n==0:
+            print("Stack Empty.")
+            return 0
+        else:
+            
+            data=self.head.data
+            self.head=self.head.getNext()
+            stack.n-=1
+            return data
+            
     # Display all data as a list     
     def show(self):
         current = self.head
@@ -50,4 +62,10 @@ myStack.push(4)
 myStack.push(5)
 myStack.push(6)
 
+myStack.show()
+
+print(myStack.pull())
+myStack.show()
+
+print(myStack.pull())
 myStack.show()
