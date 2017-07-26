@@ -41,3 +41,28 @@ Insert one element after 6th position.
 Insert one element out of range, 60th position.
 Position and list size not matched.
 
+Print Node addresses and data from forward.
+(105080752, 222)
+(105080592, 8)
+(105080552, 10)
+(105080792, 222)
+(105080512, 12)
+(105080472, 14)
+(105080832, 222)
+(105080632, 16)
+(105080672, 18)
+(105080712, 20)
+
+Print Node addresses and data from backward.
+(105080712, 20)
+(105080672, 18)
+(105080632, 16)
+(105080832, 222)
+(105080472, 14)
+(105080512, 12)
+(105080792, 222)
+(105080552, 10)
+(105080592, 8)
+(105080752, 222)
+
+
