@@ -14,40 +14,40 @@ class Node:
 
 
 class stack:
-    MAXSIZE=0
-    n=0
-    def __init__(self,data,SIZE):
-        self.head=Node(data)
-        stack.MAXSIZE=SIZE
-        stack.n+=1
-    
+
+    def __init__(self,SIZE):
+        self.head=None
+        self.MAXSIZE=SIZE
+        self.n=0
+        
     # Push the data
     def push(self,data):
-        if stack.n==stack.MAXSIZE:
+        if self.n==self.MAXSIZE:
             print("Stack full.")
             return 0
         else:
             newData=Node(data)
-            newData.setNext(self.head)
+            if self.head!=None:
+                newData.setNext(self.head)
             self.head=newData
-            stack.n+=1
+            self.n+=1
             return 1
 
     # Pull the first value
     def pull(self):
-        if stack.n==0:
+        if self.n==0:
             print("Stack Empty.")
             return 0
         else:
             
             data=self.head.data
             self.head=self.head.getNext()
-            stack.n-=1
+            self.n-=1
             return data
 
     # Get the first value            
     def peek(self):
-        if stack.n==0:
+        if self.n==0:
             print("Stack Empty.")
             return 0
         else:
@@ -64,13 +64,14 @@ class stack:
         print(values)
 
 print("\nCreate a stack. (Push 7 values in a 6 maxsize stack.)")
-myStack=stack(10,6)
+myStack=stack(6)
 myStack.push(9)
 myStack.push(8)
 myStack.push(7)
 myStack.push(6)
 myStack.push(5)
 myStack.push(4)
+myStack.push(3)
 
 myStack.show()
 

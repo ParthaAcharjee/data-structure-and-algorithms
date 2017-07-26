@@ -112,3 +112,35 @@ Peek the first value:  9
 
 [9, 10]
 
+
+# Queue using two stacks
+
+Enqueue elements in a 6-MAXSIZE queue.
+Data to enqueue in the queue:  [10, 20, 30, 40, 50, 60, 70, 80, 90]
+[10]
+[20, 10]
+[30, 20, 10]
+[40, 30, 20, 10]
+[50, 40, 30, 20, 10]
+[60, 50, 40, 30, 20, 10]
+Queue full.
+[60, 50, 40, 30, 20, 10]
+Queue full.
+[60, 50, 40, 30, 20, 10]
+Queue full.
+[60, 50, 40, 30, 20, 10]
+
+
+Start dequeue from the queue
+10
+[60, 50, 40, 30, 20]
+20
+[60, 50, 40, 30]
+30
+[60, 50, 40]
+40
+[60, 50]
+50
+[60]
+60
+[]
