@@ -20,7 +20,8 @@ class stack:
         self.head=Node(data)
         stack.MAXSIZE=SIZE
         stack.n+=1
-     
+    
+    # Push the data
     def push(self,data):
         if stack.n==stack.MAXSIZE:
             print("Stack full.")
@@ -32,7 +33,7 @@ class stack:
             stack.n+=1
             return 1
 
-
+    # Pull the first value
     def pull(self):
         if stack.n==0:
             print("Stack Empty.")
@@ -43,6 +44,14 @@ class stack:
             self.head=self.head.getNext()
             stack.n-=1
             return data
+
+    # Get the first value            
+    def peek(self):
+        if stack.n==0:
+            print("Stack Empty.")
+            return 0
+        else:
+            return self.head.data
             
     # Display all data as a list     
     def show(self):
@@ -54,18 +63,26 @@ class stack:
             
         print(values)
 
-myStack=stack(10,5)
-myStack.push(1)
-myStack.push(2)
-myStack.push(3)
-myStack.push(4)
-myStack.push(5)
+print("\nCreate a stack. (Push 7 values in a 6 maxsize stack.)")
+myStack=stack(10,6)
+myStack.push(9)
+myStack.push(8)
+myStack.push(7)
 myStack.push(6)
+myStack.push(5)
+myStack.push(4)
 
 myStack.show()
 
-print(myStack.pull())
+print("\nPull the first value: ",myStack.pull())
+myStack.show()
+print("\nPull the first value: ",myStack.pull())
+myStack.show()
+print("\nPull the first value: ",myStack.pull())
+myStack.show()
+print("\nPull the first value: ",myStack.pull())
 myStack.show()
 
-print(myStack.pull())
+
+print("\nPeek the first value: ",myStack.peek())
 myStack.show()
