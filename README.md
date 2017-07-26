@@ -84,9 +84,10 @@ Print Node addresses and data from backward.
 
 (105080752, 222)
 
-#Stack using linked list sample output
+# Stack using linked list sample output
 
 Create a stack. (Push 7 values in a 6 maxsize stack.)
+
 Stack full.
 
 [5, 6, 7, 8, 9, 10]
