@@ -1,4 +1,4 @@
-# Data Struction and algorithms demo
+# Data Structure and algorithms demo
 
 ### Single linked list implementation in Python
 ### Doubly linked list implementation in Pyhton
