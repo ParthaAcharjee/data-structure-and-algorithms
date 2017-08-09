@@ -170,3 +170,9 @@ Start dequeue from the queue
 60
 
 []
+
+## Search Algorithms
+      (Linear) Index sum: 43940 Comparison count: 43950
+       (Binary) Index sum: 43940 Comparison count: 124
+(Interpolation) Index sum: 43940 Comparison count: 38
+
