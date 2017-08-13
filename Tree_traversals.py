@@ -25,24 +25,29 @@ def treeheight(t):
         else:
             return rightHeight+1
 
-def show(current,type='Inorder'):
-        if current!=None and type=='Inorder':
+def show(current,vtype='Inorder',stack=None):
+        if current!=None and vtype=='Inorder':
             show(current.left)
             print(current.data)
             show(current.right)
-        if current!=None and type=='Preorder':
+        if current!=None and vtype=='Preorder':
             print(current.data)
-            show(current.left, type='Preorder')
-            show(current.right,type='Preorder')
+            show(current.left, vtype='Preorder')
+            show(current.right,vtype='Preorder')
 
-        if current!=None and type=='Postorder':
-            show(current.left, type='Postorder')
-            show(current.right,type='Postorder')
+        if current!=None and vtype=='Postorder':
+            show(current.left, vtype='Postorder')
+            show(current.right,vtype='Postorder')
             print(current.data)
             
-        if current!=None and type=='Levelorder':
+        if current!=None and vtype=='Levelorder':
             for d in range(1,treeheight(current)+1):
                 printlevel(current,d)
+
+        if current!=None and vtype=='Inorder_stack' and stack!=None:
+            show(current.left,vtype='Inorder_stack',stack=stack)
+            stack.append(current.data)
+            show(current.right,vtype='Inorder_stack',stack=stack)
 
 
 def diameter(root):
@@ -80,13 +85,23 @@ t.right.right=Node(5.6)
 t.left.left.left=Node(6)
 t.left.left.right=Node(7)
 
-
+print('\nPreorder')
 show(t)
-print('\n')
+
+print('\nPreorder')
 show(t,'Preorder')
-print('\n')
+
+print('\nPostorder')
 show(t,'Postorder')
-print('\n')
+
+print('\nLevelorder')
 show(t,'Levelorder')
-print('\n')
+
+print('\nDiameter')
 print(diameter(t))
+
+
+print('\nInorder Stack')
+s=[]
+show(t,vtype='Inorder_stack',stack=s)
+print(s)
