@@ -45,10 +45,26 @@ def show(current,type='Inorder'):
                 printlevel(current,d)
 
 
+def diameter(root):
+    best={'value':1}
+    def depth(root):
+        if root== None: return 0
+        L=depth(root.left)
+        R=depth(root.right)
+        best['value']=max(best['value'],L+R+1)
+        return max(L,R)+1
+        
+    
+    depth(root)
+    return best['value']-1
+    
+    
+
+
 ########## 1 #########
-###### 2 #### 3 ######
-### 4 ### 5 ##########
-###6 7 ###############            
+###### 2 ######### 3 ######
+### 4 ### 5 ##5.5 ## 5.6 ######
+###6 7 #####################            
     
 t=Node(1)
 t.left=Node(2)
@@ -56,6 +72,10 @@ t.right=Node(3)
 
 t.left.left=Node(4)
 t.left.right=Node(5)
+
+t.right.left=Node(5.5)
+t.right.right=Node(5.6)
+
 
 t.left.left.left=Node(6)
 t.left.left.right=Node(7)
@@ -68,3 +88,5 @@ print('\n')
 show(t,'Postorder')
 print('\n')
 show(t,'Levelorder')
+print('\n')
+print(diameter(t))
