@@ -3,6 +3,13 @@ class Node:
         self.left=left
         self.right=right
         self.data=data
+    def __repr__(self):
+        if self.left==None: leftprint='None'
+        else: leftprint=str(self.left.data)
+        
+        if self.right==None: rightprint='None'
+        else: rightprint=str(self.right.data)
+        return 'Left:%s Data=%d Right:%s'%(leftprint,self.data,rightprint)
 
 
 class bst:  
@@ -23,6 +30,24 @@ class bst:
         if self.root==None: self.root=Node(data)
         else:
             addElement(self.root,data)
+            
+    def search(self,data):
+        current=self.root
+                
+        def findkey(current,data):
+            if current==None: return 0
+            else:
+                if current.data>data:
+                    return findkey(current.left,data)
+                if current.data<data:
+                    return findkey(current.right,data)
+                if current.data==data:
+                    return current
+        
+        v=findkey(current,data)
+        return v
+            
+        
     
     def show(self,ttype='Inorder'):
         current=self.root
@@ -66,9 +91,14 @@ t.add(50)
 t.add(40); t.add(60)
 t.add(30); t.add(45); t.add(55); t.add(70)
 t.add(20); t.add(35); t.add(42); t.add(48); t.add(52); t.add(58); t.add(68); t.add(72)
-
+t.add(10)
 
 print('\nLevelorder show:')
 t.show('Levelorder')
 print('\nInorder show:')
 t.show()
+
+
+print('\nsearch:')
+tt=t.search(60)
+print(tt)
